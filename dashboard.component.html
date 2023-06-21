@@ -1,0 +1,60 @@
+<div>
+  <div class="row top-buffer">
+    <div class="col-md-4 col-sm-6 col-xs-12" style="display: inline-flex; flex-direction: row;">
+      <img src="assets/img-nd/dashboard.svg" alt="dashboard icon" width="64" height="64" />
+      <h1 id="TitleTextDashboard" style="font-size:1.30em">
+        &nbsp;&nbsp;<b>{{'Dashboard' | translate}}</b>
+      </h1>
+    </div>
+  </div>
+</div>
+<br>
+
+<div>
+
+  <!-- <div>
+    <app-dashboard-draw [defaultView]="false" (finishedLoading)="loadData()"></app-dashboard-draw>
+  </div> -->
+
+  <div class="row top-buffer">
+    <div class="col-md-6">
+      <tpcr-input-select [required]="false" [label]="'Organization'" id="organizationSelection"
+        [(ngModel)]="selectedOrg" [hint]="'choose Organization'" [isMultiple]="true" [options]="orgList"
+        (selectionChange)=selectionChanged($event)>
+      </tpcr-input-select>
+    </div>
+    <div class="col-md-6">
+      <tpcr-input-select [required]="false" [label]="'Program'" [(ngModel)]="selectedProgram" [hint]="'choose Program'"
+        id="programSelection" [options]="progList" [isMultiple]="true" (selectionChange)=selectionChanged($event)>
+      </tpcr-input-select>
+    </div>
+  </div>
+  <div class="row top-buffer">
+    <div class="col-md-6">
+      <tpcr-input-select [required]="false" [label]="'Fiscal Year'" [(ngModel)]="selectedFiscal" [hint]="'choose Fiscal'"
+        id="fiscalSelection" [options]="fiscalList" [isMultiple]="true" (selectionChange)=selectionChanged($event)>
+      </tpcr-input-select>
+    </div>
+    <div class="col-md-6">
+      <tpcr-input-select [required]="false" [label]="'Ministry'" [(ngModel)]="selectedMinistry"
+        [hint]="'choose a Ministry'" id="ministrySelection" [options]="ministryList" [isMultiple]="true"
+        (selectionChange)=selectionChanged($event)>
+      </tpcr-input-select>
+    </div>
+  </div>
+  <br>
+
+</div>
+<br>
+
+
+<div>
+
+  <div class="row top-buffer">
+    <div class="col-md-12 col-sm-12 col-xs-12" style="text-align: center">
+      <a id="backToHomeLink" href="#/home">Back to Home</a>
+    </div>
+  </div>
+  <br>
+
+</div>

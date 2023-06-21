@@ -1,0 +1,215 @@
+
+  <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[disabled]='viewState.isInROModeRestricted' [readonly] = 'viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.legalName" -->
+                <tpcr-input-text id="firstName" [required]="true" [label]="'First Name'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+            </div>
+          </div>
+    
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <tpcr-input-text id="middleName" [required]="true" [label]="'Middle Name'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <tpcr-input-text id="lastName" [required]="true" [label]="'Last Name'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[disabled]='viewState.isInROModeRestricted' [readonly] = 'viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.ownershipType" -->
+                <tpcr-input-select id="customerLegalStructure" [required]="true" [label]="'Customer Legal Structure'" [options]="customerLegalStructureOptions"  style="margin-bottom: 15px; display: block;">
+                </tpcr-input-select>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <tpcr-input-text id="sinNumber" [required]="true" [label]="'SIN Number'" placeholder="SIN Number" value="AXXX-XXXXX-XXXXX" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <label>Date of Birth*</label><br>
+                <tpcr-input-select id="dayOfBirth" [required]="true" [label]="'Day'" style="margin-bottom: 15px; display: inline-block; width: 20%;" [options]="customerDOBDayOptions">
+                </tpcr-input-select>
+                <tpcr-input-select id="monthOfBirth" [required]="true" [label]="'Month'" style="margin-bottom: 15px; display: inline-block; width: 20%;" [options]="customerDOBMonthOptions">
+                </tpcr-input-select>
+                <tpcr-input-select id="yearOfBirth" [required]="true" [label]="'Year'" style="margin-bottom: 15px; display: inline-block; width: 20%;" [options]="customerDOBYearOptions">
+                </tpcr-input-select>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <label>Date of Birth*</label><br>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+          </div>
+
+          <div class="row top-buffer form-group">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]='viewState.isInROMode' [(ngModel)]="orgProfile && orgProfile.operatingName"-->
+                <!--FIX placeholder override-->
+                <tpcr-input-text id="driverLicenseNum" [required]="true" [label]="'Driver License Number'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+            </div>
+          </div>
+            
+        </div>
+      </div>
+    
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 lang="{{viewState.laCo}}">{{'businessInfo' | translate}}</h3>
+        </div>
+        <div class="panel-body form-group">
+            <div class="row top-buffer">
+                <div class="col-md-12 col-ms-12 col-xs-12">
+                  <!--[disabled]='viewState.isInROModeRestricted' [readonly] = 'viewState.isInROMode'-->
+                    <tpcr-input-radio id="businessNumberEligibility" [(ngModel)]="orgProfile && orgProfile.businessNumberEligibility"
+                      [label]="'businessNumberEligibility'" [hint]="'businessNumberTooltip'"
+                      required="true" [options]="yesNoOptions"  style="margin-bottom: 15px; display: block;">
+                    </tpcr-input-radio>
+                </div>
+            </div>
+            <div *ngIf="orgProfile?.businessNumberEligibility==='false'">
+                <div class="row top-buffer">
+                    <div class="col-md-12 col-ms-12 col-xs-12">
+                      <!--[disabled]='viewState.isInROModeRestricted' [readonly] = 'viewState.isInROMode'-->
+                        <tpcr-input-checkbox id="mychkbx1" name="mychkbx1" [(ngModel)]="declareNoBN9" (ngModelChange)="!declareNoBN9"
+                           [label]="'BN9NotAvailable'" 
+                        required="true"  style="margin-bottom: 10px; display: block;">
+                      </tpcr-input-checkbox>
+                    </div>
+                </div>
+          </div>
+          <!--*ngIf="showBN9()"-->
+          <div class="row top-buffer">
+            <div class="col-md-12 col-ms-12 col-xs-12">
+              <!--[readonly] = 'viewState.isInROMode' -->
+              <tpcr-input-text id="businessNumber" [(ngModel)]="orgProfile && orgProfile.businessNumber"
+                  [disabled]='viewState.isInROModeRestricted' 
+                  [required]="orgProfile?.businessNumberEligibility=='true'"  [label]="'businessNumber'" 
+                  [hint]="'businessNumberTooltip'"  style="margin-bottom: 15px; display: block;">
+              </tpcr-input-text>
+            </div>        
+          </div>
+    
+          <div class="row top-buffer" *ngIf="orgProfile?.objectId>0 && orgProfile?.businessProgramNumber">
+              <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]="true"-->
+                <tpcr-input-text id="businessProgramNumber" [(ngModel)]="orgProfile && orgProfile.businessProgramNumber"
+                  [label]="'businessProgramNumber'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+              </div>
+            </div>
+      
+            <div class="row top-buffer" *ngIf="orgProfile?.objectId>0 && orgProfile?.alternateId">
+              <div class="col-md-12 col-ms-12 col-xs-12">
+                <!--[readonly]="true"-->
+                <tpcr-input-text id="alternateId" [(ngModel)]="orgProfile && orgProfile.alternateId"
+                       [label]="'alternateId'" [hint]="'alternateIdTooltip'" style="margin-bottom: 15px; display: block;">
+                </tpcr-input-text>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      <div *ngIf="orgProfile.objectId>0">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 lang="{{viewState.laCo}}">{{'RegInfo' | translate}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row top-buffer form-group">
+              <div class="col-md-4" lang="{{viewState.laCo}}">{{'RegistrationID' | translate}}
+                <ng-template #regidtooltip>{{'RegistrationIDTooltip'|translate}}</ng-template>
+                <a [popover]="regidtooltip" triggers="mouseenter:mouseleave" tabindex="0" >
+                  <span class="glyphicon glyphicon-info-sign"></span>
+                </a>
+              </div>
+              <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.objectId}}</div>
+            </div>
+            <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && orgProfile?.registrationCode">
+              <div class="col-md-4 " lang="{{viewState.laCo}}">{{'RegistrationCode' | translate}}</div>
+              <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.registrationCode}}</div>
+            </div>
+            <div class="row top-buffer form-group" *ngIf="!viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+              <div class="col-md-4" lang="{{viewState.laCo}}">{{'registrationStatus' | translate}}</div>
+              <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.registrationStatus|translate}}</div>
+            </div>
+            <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+              <div class="col-md-4 "for="registrationStatus" lang="{{viewState.laCo}}">{{'registrationStatus' | translate}}
+              </div>
+              <div class="col-md-8">
+                <select id="registrationStatus" name="registrationStatus" ng-change='determineStatusReasonList()' [(ngModel)]="orgProfile && orgProfile.registrationStatus"
+                  class="form-control">
+                  <option *ngFor="let orgStatus of eligibleStatuses" [ngValue]="orgStatus" [disabled]="orgStatus==disallowedStatus">{{orgStatus | translate}}</option>>
+                </select>
+              </div>
+            </div>
+            <div class="row top-buffer form-group" *ngIf="!viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+              <div class="col-sm-4" lang="{{viewState.laCo}}">{{'statusReason' | translate}}</div>
+              <div class="col-sm-8" lang="{{viewState.laCo}}">{{orgProfile?.statusReason | translate}}</div>
+            </div>
+            <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+              <div class="col-sm-4" lang="{{viewState.laCo}}">{{'statusReason' | translate}}</div>
+              <div class="col-sm-8" lang="{{viewState.laCo}}">
+                <select id="statusCategory" name="statusCategory" [(ngModel)]="orgProfile && orgProfile.statusReason" class="form-control">
+                  <option *ngFor="let orgReason of eligibleStatusReasons" [ngValue]="orgReason"  style="margin-bottom: 15px; display: block;">{{orgReason | translate}}</option>>
+                </select>
+              </div>
+            </div>
+            <div class="row top-buffer form-group">
+              <div class="col-sm-4" lang="{{viewState.laCo}}">{{'lastModifiedBy' | translate}}</div>
+              <div class="col-sm-8" lang="{{viewState.laCo}}">
+                <tpcr-modified-by-widget [modifiedBy]="orgProfile?.lastModifiedBy"></tpcr-modified-by-widget>
+              </div>
+            </div>
+            <div class="row top-buffer form-group">
+              <div class="col-sm-4" lang="{{viewState.laCo}}">{{'lastModifiedTime' | translate}}</div>
+              <div class="col-sm-8" lang="{{viewState.laCo}}">{{orgProfile?.lastModifiedTime | date:'dd/MM/yyyy HH:mm'}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div [ngSwitch]="viewState.showNavMenu2()">
+          <tpcr-input-button  class = "cancelButton" routerLink="/supplierLookup" lang="{{viewState.laCo}}"> {{'Cancel Request'|translate}}
+          </tpcr-input-button>
+          
+          <!--CHANGE handler from "goNext()" to "saveAndContinue()" when done testing-->
+          <tpcr-input-button lang="{{viewState.laCo}}" (click)="saveAndContinue()"> {{'Save Changes'|translate}}
+          </tpcr-input-button>
+    
+          <!-- <ng-template #firstDialog>
+              <h2 matDialogTitle>Warning</h2>
+              <p matDialogContent><em>System should warn about failing to select a CRA number if the supplier’s legal structure is anything BUT corporation.</em></p>
+              <mat-dialog-actions align="end">
+                <button mat-button>No</button>
+                <button mat-button matDialogClose>Yes, Continue</button>
+              </mat-dialog-actions>
+          </ng-template> -->
+      </div>
+      <div>
+          <a (click)="goNext()" style="float: right;"> Continue to Address <mat-icon style="display: inline;">arrow_forward</mat-icon></a>
+      </div>

@@ -1,0 +1,149 @@
+<!-- <div class="row top-buffer">
+          <div class="col-md-12 col-sm-12 col-xs-12"> -->
+<!-- <span style="display: inline-flex; flex-direction: row;"> -->
+<!-- *ngIf="viewState.isInCreationMode"  -->
+<!-- <img src="assets/img-nd/register.svg" alt="home icon" width="64" height="64" />
+                      <h1 id="TitleTextHome" style="font-size:1.30em">
+                            &nbsp;&nbsp;
+                            <b>{{'registerOrganization' | translate}}</b>
+                      </h1>
+                </span> -->
+<!-- <span style="display: inline-flex; flex-direction: row;">
+                      <img src="assets/img-nd/view_update.svg" alt="home icon" width="64" height="64" />
+                      <h1 id="TitleTextHome" style="font-size:1.30em">
+                            &nbsp;&nbsp;
+                            <b>{{'updateOrganization' | translate}}</b>
+                      </h1>
+                </span> -->
+<!-- </div>
+    </div> -->
+    <br>
+    <!-- <app-org-navreg [orgId]="orgId" (currStep)="currStep($event)"></app-org-navreg> -->
+    <div *ngIf="!restrictedAddress">
+      <div class="panel-body">
+        <!-- (change)="checkTypeBusiness()" -->
+        <!-- <div *ngIf="!(!orgProfile || orgProfile.addressNotProvided === 'true' || orgProfile.addressNotProvided)"> -->
+    
+        <!-- <form class="example-form"> -->
+        <!-- disabled='viewState.isInROMode' -->
+    
+        <h3>Site Address</h3>
+        <tpcr-input-text [disabled]="manualEntry" id="siteName" required="true" name="nameOfSite" label="Search Address"
+          style="margin-bottom: 15px; display: block;">
+        </tpcr-input-text>
+        <a style="font-size: 12px; right: 20%; margin-top: -4%; position: absolute;" (click)="addressLookupBusiness()"
+          (keyup.enter)="addressLookupBusiness()">
+          <mat-icon style="font-size: large">search</mat-icon>
+        </a>
+        <p style="font-size: small; margin: 0%;">Can't find your address? <a (click)="changeEntry()"> Enter it manually</a>
+        </p>
+        <br>
+    
+        <tpcr-input-text [disabled]="!manualEntry" id="siteAddress" required="true" name="siteAddress" label="Site Address">
+        </tpcr-input-text>
+    
+        <tpcr-input-text id="unitType" [disabled]="!manualEntry" required="true" name="unitType" label="Unit Type"
+          style="float:right; width: 50%; display: block; padding-right: 12%;">
+        </tpcr-input-text>
+    
+        <tpcr-input-text id="unitNum" [disabled]="!manualEntry" required="false" name="unitNum" label="Unit Number"
+          style=" display: block; width: 40%; margin: 0px; padding: 0px;">
+        </tpcr-input-text>
+    
+        <tpcr-input-text id="postcode" [disabled]="!manualEntry" label="{{'postalCode' | translate}}" required="true"
+          name="postcode" style="float:right; margin-bottom: 15px; display: inline-block;">
+        </tpcr-input-text>
+    
+        <tpcr-input-text id="state" [disabled]="!manualEntry" label="{{'province' | translate}}" required="true"
+          name="province" style="margin-bottom: 15px; display: inline-block;">
+        </tpcr-input-text>
+    
+        <tpcr-input-select id="country" [disabled]="!manualEntry" label="{{'country' | translate}}" required="true"
+          name="country" [options]="countries" style="margin-bottom: 15px; display: block;">
+        </tpcr-input-select>
+    
+    
+        <!-- </form> -->
+        <br>
+    
+    
+        <h3>{{'mailing_address' | translate}}</h3>
+    
+        <br>
+    
+        <tpcr-input-checkbox id="mailCheckBox" (click)="changeMailingFlag()"
+          label="{{'sameAsBusinessAddress' | translate}}">
+        </tpcr-input-checkbox>
+    
+        <div *ngIf="!mailingAddressSameAsSupplierAddress">
+          <!-- <form class="example-form"> -->
+          <h3>Supplier Address</h3>
+          <tpcr-input-text [disabled]="manualEntry" id="siteName" required="true" name="nameOfSite" label="Search Address"
+            style="margin-bottom: 15px; display: block;">
+          </tpcr-input-text>
+          <a style="font-size: 12px; right: 20%; margin-top: -4%; position: absolute;" (click)="addressLookupBusiness()"
+            (keyup.enter)="addressLookupBusiness()">
+            <mat-icon style="font-size: large">search</mat-icon>
+          </a>
+          <p style="font-size: small; margin: 0%;">Can't find your address? <a (click)="changeEntry()"> Enter it
+              manually</a>
+          </p>
+          <br>
+    
+          <tpcr-input-text [disabled]="!manualEntry" id="siteAddress" required="true" name="siteAddress"
+            label="Site Address">
+          </tpcr-input-text>
+    
+          <tpcr-input-text id="unitType" [disabled]="!manualEntry" required="true" name="unitType" label="Unit Type"
+            style="float:right; width: 50%; display: block; padding-right: 12%;">
+          </tpcr-input-text>
+    
+          <tpcr-input-text id="unitNum" [disabled]="!manualEntry" required="false" name="unitNum" label="Unit Number"
+            style=" display: block; width: 40%; margin: 0px; padding: 0px;">
+          </tpcr-input-text>
+    
+          <tpcr-input-text id="postcode" [disabled]="!manualEntry" label="{{'postalCode' | translate}}" required="true"
+            name="postcode" style="float:right; margin-bottom: 15px; display: inline-block;">
+          </tpcr-input-text>
+    
+          <tpcr-input-text id="state" [disabled]="!manualEntry" label="{{'province' | translate}}" required="true"
+            name="province" style="margin-bottom: 15px; display: inline-block;">
+          </tpcr-input-text>
+    
+          <tpcr-input-select id="country" [disabled]="!manualEntry" label="{{'country' | translate}}" required="true"
+            name="country" [options]="countries" style="margin-bottom: 15px; display: block;">
+          </tpcr-input-select>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+          <!-- <h3 lang="{{viewState.laCo}}">{{'AddressExemption' | translate}}</h3>
+    
+          <tpcr-input-checkbox id="addressNotProvided" (click)="changeBusinessFlag()"
+            label="Address_information_provided_on_this_form" style="margin-bottom: 15px; display: block;">
+          </tpcr-input-checkbox> -->
+        
+    
+    
+    
+    <div style="padding: 0px;">
+      <!-- <tpcr-input-button id="saveBtn" (handler)="saveAddressToDb()">
+        <mat-icon class=btnIcon svgIcon="save-icon"></mat-icon>{{'save' | translate}}
+      </tpcr-input-button> -->
+      <tpcr-input-button  class = "cancelButton" routerLink="/home" lang="{{viewState.laCo}}"> {{'Cancel Request'|translate}}
+      </tpcr-input-button>
+    
+      <tpcr-input-button routerLink="/" lang="{{viewState.laCo}}"> {{'Save Changes'|translate}}
+      </tpcr-input-button>
+      <br>
+      <br>
+    </div>
+    <!-- <div style="text-align: center">
+      <br> <br><br> <br>
+      <a routerLink=""> Cancel Registration</a>
+    </div> -->
+    
+    <div>
+      <a routerLink="/" style="float: left;"><mat-icon style="display: inline-flex;">arrow_back</mat-icon> Back to Profile</a>
+      <a routerLink="/" style="float: right;"> Continue to Contacts <mat-icon style="display: inline;">arrow_forward</mat-icon></a>
+    </div>

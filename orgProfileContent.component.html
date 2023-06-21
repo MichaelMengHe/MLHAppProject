@@ -1,0 +1,374 @@
+
+  <h2 lang="{{viewState.laCo}}">{{'OrgProfile_title'|translate}}</h2>
+  <p lang="{{viewState.laCo}}">{{'OrgProfile_blurb'|translate}}</p>
+  <p lang="{{viewState.laCo}}">{{'OrgProfile_Page_Blurb'|translate}}</p>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 lang="{{viewState.laCo}}">{{'essentialInfo'|translate}}</h3>
+    </div>
+    <div class="panel-body">
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" for="legalName" lang="{{viewState.laCo}}">{{'legalName'| translate}}</label>
+          <ng-template #legalnametooltip>{{'legalNameTooltip'|translate}}</ng-template>
+          <a [popover]="legalnametooltip" triggers="mouseenter mouseleave" tabindex="0" placement="top">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <input [readonly]='viewState.isInROModeRestricted' name="legalName" type="text" class="form-control" [(ngModel)]="orgProfile && orgProfile.legalName"
+            class="form-control" required>
+        </div>
+      </div>
+      <div class="row top-buffer  form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" for="operatingName" lang="{{viewState.laCo}}">{{'operatingName'| translate}}</label>
+          <ng-template #opnametooltip>{{'operatingNameTooltip'|translate}}</ng-template> 
+          <a [popover]="opnametooltip" triggers="mouseenter:mouseleave" tabindex="0" placement="right">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <input [readonly]='viewState.isInROMode' type="text" id="operatingName" name="operatingName" [(ngModel)]="orgProfile && orgProfile.operatingName"
+            class="form-control" required>
+        </div>
+      </div>
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" for="ownershipType" lang="{{viewState.laCo}}">{{'ownershipType' |translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <select [disabled]='viewState.isInROModeRestricted' id="ownershipType" name="ownershipType" [(ngModel)]="orgProfile && orgProfile.ownershipType"
+            class="form-control" required>
+            <option value=""></option>
+            <option value="Individual" lang="{{viewState.laCo}}">{{'Individual' | translate}}</option>
+            <option value="Partnership" lang="{{viewState.laCo}}">{{'Partnership' | translate}}</option>
+            <option value="Corporation" lang="{{viewState.laCo}}">{{'Corporation' | translate}}</option>
+            <option value="Trust" lang="{{viewState.laCo}}">{{'Trust' | translate}}</option>
+            <option value="Other" lang="{{viewState.laCo}}">{{'Other' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" for="organizationalType" lang="{{viewState.laCo}}">{{'organizationalType' |translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <select [disabled]='viewState.isInROMode' id="organizationalType" name="organizationalType" [(ngModel)]="orgProfile && orgProfile.organizationalType"
+            class="form-control" required>
+            <option value="" selected></option>
+            <option value="AdvocacyGroup" lang="{{viewState.laCo}}">{{'AdvocacyGroup' | translate}}</option>
+            <option value="Agriculture" lang="{{viewState.laCo}}">{{'Agriculture' | translate}}</option>
+            <option value="ArtsAndCultureOrganization" lang="{{viewState.laCo}}">{{'ArtsAndCultureOrganization' | translate}}</option>
+            <option value="BusinessProfessionalAssociations" lang="{{viewState.laCo}}">{{'BusinessProfessionalAssociations' | translate}}</option>
+            <option value="ChildrensAidSocieties" lang="{{viewState.laCo}}">{{'ChildrensAidSocieties' | translate}}</option>
+            <option value="CollegesUniversities" lang="{{viewState.laCo}}">{{'CollegesUniversities' | translate}}</option>
+            <option value="CommunityCareAccessCentres" lang="{{viewState.laCo}}">{{'CommunityCareAccessCentres' | translate}}</option>
+            <option value="CommunityServicesOrganization" lang="{{viewState.laCo}}">{{'CommunityServicesOrganization' | translate}}</option>
+            <option value="DevelopmentAndHousingOrganization" lang="{{viewState.laCo}}">{{'DevelopmentAndHousingOrganization' | translate}}</option>
+            <option value="EducationAndResearchOrganization" lang="{{viewState.laCo}}">{{'EducationAndResearchOrganization' | translate}}</option>
+            <option value="EmploymentServicesOrganizations" lang="{{viewState.laCo}}">{{'EmploymentServicesOrganizations' | translate}}</option>
+            <option value="Energy" lang="{{viewState.laCo}}">{{'Energy' | translate}}</option>
+            <option value="EnvironmentAndConservationOrganization" lang="{{viewState.laCo}}">{{'EnvironmentAndConservationOrganization' | translate}}</option>
+            <option value="FamilyHealthTeam" lang="{{viewState.laCo}}">{{'FamilyHealthTeam' | translate}}</option>
+            <option value="FirstNation" lang="{{viewState.laCo}}">{{'FirstNation' | translate}}</option>
+            <option value="ForestryAndMining" lang="{{viewState.laCo}}">{{'ForestryAndMining' | translate}}</option>
+            <option value="Hospitals" lang="{{viewState.laCo}}">{{'Hospitals' | translate}}</option>
+            <option value="Libraries" lang="{{viewState.laCo}}">{{'Libraries' | translate}}</option>
+            <option value="LongTermCareFacility" lang="{{viewState.laCo}}">{{'LongTermCareFacility' | translate}}</option>
+            <option value="MentalHealthServicesOrganization" lang="{{viewState.laCo}}">{{'MentalHealthServicesOrganization' | translate}}</option>
+            <option value="Metis" lang="{{viewState.laCo}}">{{'Metis' | translate}}</option>
+            <option value="Municipalities" lang="{{viewState.laCo}}">{{'Municipalities' | translate}}</option>
+            <option value="OtherAboriginal" lang="{{viewState.laCo}}">{{'OtherAboriginal' | translate}}</option>
+            <option value="SchoolBoards" lang="{{viewState.laCo}}">{{'SchoolBoards' | translate}}</option>
+            <option value="ServicesToChildrenOrganization" lang="{{viewState.laCo}}">{{'ServicesToChildrenOrganization' | translate}}</option>
+            <option value="ServicesToSeniorsOrganization" lang="{{viewState.laCo}}">{{'ServicesToSeniorsOrganization' | translate}}</option>
+            <option value="SocialServicesOrganization" lang="{{viewState.laCo}}">{{'SocialServicesOrganization' | translate}}</option>
+            <option value="SportsRecreationOrganization" lang="{{viewState.laCo}}">{{'SportsRecreationOrganization' | translate}}</option>
+            <option value="NoneOfAbove" lang="{{viewState.laCo}}">{{'NoneOfAbove' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row top-buffer form-group">
+          <div class="col-md-4">
+            <label for="specify" lang="{{viewState.laCo}}" [ngClass]="{'mandatory-label': orgProfile?.organizationalType === 'NoneOfAbove'}">
+                 {{'ifOther'| translate}}
+            </label>
+          </div>
+          <div class="col-md-8">
+            <input id="specify" type="text" name="specify" class="form-control" [(ngModel)]="orgProfile && orgProfile.organizationalTypeOther"
+                [required]="orgProfile?.organizationalType === 'NoneOfAbove'"  [readonly]='viewState.isInROMode' 
+                [disabled]="orgProfile?.organizationalType !== 'NoneOfAbove'">
+          </div>
+      </div>
+
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" lang="{{viewState.laCo}}">{{'notForProfit' | translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <select [disabled]='viewState.isInROMode' id="notForProfit" name="notForProfit" [(ngModel)]="orgProfile && orgProfile.notForProfit"
+            class="form-control" required>
+            <option value=""></option>
+            <option value="true" lang="{{viewState.laCo}}">{{'true'| translate}}</option>
+            <option value="false" lang="{{viewState.laCo}}">{{'false' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label for="website" lang="{{viewState.laCo}}">{{'websiteAddress' |translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <input [readonly]='viewState.isInROMode' type="text" id="website" name="website" class="form-control" [(ngModel)]="orgProfile && orgProfile.websiteAddress">
+        </div>
+      </div>
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label class="mandatory-label" lang="{{viewState.laCo}}"> {{'registeredCharity' | translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <select [disabled]='viewState.isInROMode' id="registeredCharity" name="registeredCharity" [(ngModel)]="orgProfile && orgProfile.registeredCharity"
+            required class="form-control">
+            <option value=""></option>
+            <option value="true" lang="{{viewState.laCo}}">{{'true'| translate}}</option>
+            <option value="false" lang="{{viewState.laCo}}">{{'false' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row top-buffer form-group">
+        <div class="col-md-4">
+          <label for="affiliateName" lang="{{viewState.laCo}}">{{'AffiliateName' |translate}}</label>
+          <ng-template #affilitaionnametooltip>{{ 'AffiliateNameTooltip' | translate }}</ng-template>
+          <a [popover]="affilitaionnametooltip" triggers="focus mouseenter mouseleave" tabindex="0" placement="right">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <input [(ngModel)]="affiliationSearch.searchText"
+                [typeahead]= "orgSearchResults"
+                 (typeaheadNoResults)="affiliationSearchNoResults($event)"  
+                 typeaheadOptionField="legalName"
+                 (typeaheadLoading)="loadingOrganizations"
+                 (typeaheadOnSelect)="onSelectOrganization($event)"
+                 typeaheadMinLength="4"
+                 [readonly]='viewState.isInROMode'
+                  placeholder="{{'searchAffiliation'|translate}}"
+                  class="form-control">
+            <div  *ngIf="affiliationSearchNoResult">
+              <br><div type="text" class="alert alert-danger"> {{'noAffiliationFound' |translate}}</div>
+            </div>
+            <i *ngIf="loadingOrganizations" class="glyphicon glyphicon-refresh"></i>
+
+            <div class="row top-buffer form-group">
+                <div *ngFor="let affiliation of orgProfile.affiliationOrganizations">
+                  <div class="col-md-8 ">
+                    <input type="text" id="affiliateName" [readonly]='true' name="affiliateName" class="form-control" value={{affiliation.affiliationOrganization.legalName}}>
+                    <button *ngIf='!viewState.isInROMode' class="close-icon" (click)="removeAffiliation($index)"></button>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!--  panel end -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 lang="{{viewState.laCo}}">{{'businessInfo' | translate}}</h3>
+    </div>
+    <div class="panel-body form-group">
+      <div class="row top-buffer">
+        <div class="col-md-4" style="padding-right:0;">
+          <label class="mandatory-label" lang="{{viewState.laCo}}">{{'businessNumberEligibility' | translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <select required [disabled]='viewState.isInROModeRestricted' id="businessNumberEligibility" name="businessNumberEligibility"
+            [(ngModel)]="orgProfile && orgProfile.businessNumberEligibility" class="form-control">
+            <option value=""></option>
+            <option value="true" lang="{{viewState.laCo}}">{{'true'| translate}}</option>
+            <option value="false" lang="{{viewState.laCo}}">{{'false' | translate}}</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="orgProfile?.businessNumberEligibility=='false'">
+        <div class="row top-buffer">
+          <div class="col-md-1">
+            <input id="businessNumberEligibilityDisclaimer" [(ngModel)]="declareNoBN9" checked="declareNoBN9" (click)='changeDeclareNoBN9Flag()'
+              [disabled]='viewState.isInROModeRestricted' style="padding-left: 15px;" type="checkbox" (keyup.enter)="changeDeclareNoBN9Flag()"
+              name="declareNoBN9"> <!-- THIS IS WHERE YOU NEED TO ADD IN THE POPUP HI!!!!-->
+          </div>
+          <div class="checkBoxStyle col-md-11">
+            <label style="font-weight:normal" lang="{{viewState.laCo}}">{{'BN9NotAvailable' | translate}}</label>
+          </div>
+        </div>
+      </div>
+      <div class="row top-buffer" *ngIf="showBN9()">
+        <div class="col-md-4">
+          <label for="businessNumber" lang="{{viewState.laCo}}">{{'businessNumber' | translate}}</label>
+          <ng-template #businessNumbertooltip>{{'businessNumberTooltip'|translate}}</ng-template>
+          <a [popover]="businessNumbertooltip" triggers="mouseenter mouseleave" tabindex="0" placement="right">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <input maxlength="9" [readonly]='viewState.isInROModeRestricted' type="text" id="businessNumber" name="businessNumber" [(ngModel)]="orgProfile && orgProfile.businessNumber"
+            class="form-control">
+        </div>
+      </div>
+      <div class="row top-buffer" *ngIf="orgProfile?.objectId>0 && orgProfile?.businessProgramNumber">
+        <div class="col-md-4">
+          <label for="businessProgramNumber" lang="{{viewState.laCo}}">{{'businessProgramNumber' | translate}}</label>
+        </div>
+        <div class="col-md-8">
+          <input type="text" id="businessProgramNumber" name="businessProgramNumber" [readonly]="'true'" [(ngModel)]="orgProfile && orgProfile.businessProgramNumber"
+            class="form-control">
+        </div>
+      </div>
+      <div class="row top-buffer" *ngIf="orgProfile?.objectId>0 && orgProfile?.alternateId">
+        <div class="col-md-4">
+          <label for="alternateId" lang="{{viewState.laCo}}">{{'alternateId' | translate}}</label>
+          <ng-template #altId>{{'alternateIdTooltip'|translate}}</ng-template>
+          <a [popover]="altId" triggers="mouseenter mouseleave" tabindex="0">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <input type="text" id="alternateId" name="alternateId" [readonly]="true" [(ngModel)]="orgProfile && orgProfile.alternateId"
+            class="form-control">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+    <div class="panel-heading">
+      <h3 lang="{{viewState.laCo}}">{{'hdUserAuthHeader' | translate}}</h3>
+    </div>
+    <div class="panel-body form-group">
+      <div class="row top-buffer">
+        <div class="col-md-1">
+          <input id="hduHavePermissionDisclaimer" [(ngModel)]="hduserHaveAuthorization" checked="hduserHaveAuthorization" (click)='changeHDUserAuthorizationFlag()' style="padding-left: 15px;"
+            type="checkbox" (keyup.enter)="changeHDUserAuthorizationFlag()" name="hduserHaveAuthorization">
+        </div>
+        <div class="checkBoxStyle col-md-11">
+          <label style="font-weight:normal" lang="{{viewState.laCo}}">{{'hdUserAuthDisclaimer' | translate}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- help desk user authorization notes section -->
+  <div class="panel panel-default" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+    <div class="panel-heading">
+      <h3 lang="{{viewState.laCo}}">{{'statusDescription' | translate}}</h3>
+    </div>
+    <div class="panel-body form-group">
+      <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk">
+        <div class="col-md-4 readOnlyLabel">
+          <label class="mandatory-label" for="statusDescription" lang="{{viewState.laCo}}">{{'statusDescription' | translate}}</label>
+          <ng-template #statusdesctooltip>{{'statusDescriptionTooltip'|translate}}</ng-template>
+          <a [popover]="statusdesctooltip" triggers="mouseenter:mouseleave" tabindex="0">
+            <span class="glyphicon glyphicon-info-sign"></span>
+          </a>
+        </div>
+        <div class="col-md-8">
+          <textarea id="statusDescription" name="statusDescription" [(ngModel)]="orgProfile && orgProfile.statusDescription" maxlength="1000"
+            [maxLength]="1000" rows="4" cols="50" class="form-control"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="orgProfile.objectId>0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 lang="{{viewState.laCo}}">{{'RegInfo' | translate}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row top-buffer form-group">
+          <div class="col-md-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'RegistrationID' | translate}}
+            <ng-template #regidtooltip>{{'RegistrationIDTooltip'|translate}}</ng-template>
+            <a [popover]="regidtooltip" triggers="mouseenter:mouseleave" tabindex="0" >
+              <span class="glyphicon glyphicon-info-sign"></span>
+            </a>
+          </div>
+          <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.objectId}}</div>
+        </div>
+        <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && orgProfile?.registrationCode">
+          <div class="col-md-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'RegistrationCode' | translate}}</div>
+          <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.registrationCode}}</div>
+        </div>
+        <div class="row top-buffer form-group" *ngIf="!viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+          <div class="col-md-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'registrationStatus' | translate}}</div>
+          <div class="col-md-8" lang="{{viewState.laCo}}">{{orgProfile?.registrationStatus|translate}}</div>
+        </div>
+        <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+          <div class="col-md-4 readOnlyLabel">
+            <label for="registrationStatus" lang="{{viewState.laCo}}">{{'registrationStatus' | translate}}</label>
+          </div>
+          <div class="col-md-8">
+            <select id="registrationStatus" name="registrationStatus" ng-change='determineStatusReasonList()' [(ngModel)]="orgProfile && orgProfile.registrationStatus"
+              class="form-control">
+              <option *ngFor="let orgStatus of eligibleStatuses" [ngValue]="orgStatus" [disabled]="orgStatus==disallowedStatus">{{orgStatus | translate}}</option>>
+            </select>
+          </div>
+        </div>
+        <div class="row top-buffer form-group" *ngIf="!viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+          <div class="col-sm-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'statusReason' | translate}}</div>
+          <div class="col-sm-8" lang="{{viewState.laCo}}">{{orgProfile?.statusReason | translate}}</div>
+        </div>
+        <div class="row top-buffer form-group" *ngIf="viewState.isUserTypeHelpDesk && !viewState.isInLockupRegistrationStatus">
+          <div class="col-sm-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'statusReason' | translate}}</div>
+          <div class="col-sm-8" lang="{{viewState.laCo}}">
+            <select id="statusCategory" name="statusCategory" [(ngModel)]="orgProfile && orgProfile.statusReason" class="form-control">
+              <option *ngFor="let orgReason of eligibleStatusReasons" [ngValue]="orgReason">{{orgReason | translate}}</option>>
+            </select>
+          </div>
+        </div>
+        <div class="row top-buffer form-group">
+          <div class="col-sm-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'lastModifiedBy' | translate}}</div>
+          <div class="col-sm-8" lang="{{viewState.laCo}}">
+            <tpcr-modified-by-widget [modifiedBy]="orgProfile?.lastModifiedBy"></tpcr-modified-by-widget>
+          </div>
+        </div>
+        <div class="row top-buffer form-group">
+          <div class="col-sm-4 readOnlyLabel" lang="{{viewState.laCo}}">{{'lastModifiedTime' | translate}}</div>
+          <div class="col-sm-8" lang="{{viewState.laCo}}">{{orgProfile?.lastModifiedTime | date:'dd/MM/yyyy HH:mm'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div [ngSwitch]="viewState.showNavMenu2()">
+    <div *ngSwitchCase="false">
+      <div class="row top-buffer">
+        <div class="col-md-2">
+          <a (click)="cancel()" (keyup.enter)="cancel()" class="navbutton btn btn-success" tabindex="0" id="cancel1" lang="{{viewState.laCo}}">{{'cancel' | translate}}</a>
+        </div>
+        <div class="col-md-4">
+          <a routerLink="{{viewState.isUserTypePublic?'/manageExisting':'/search/back'}}" class="navbutton btn btn-success" id="back" *ngIf='!viewState.isInCreationMode' lang="{{viewState.laCo}}">{{'back_to_organization_list' | translate}}</a>
+        </div>
+        <div class="col-md-offset-3 col-md-3 text-right">
+          <a *ngIf="!viewState.isInROMode" (click)="save()" (keyup.enter)="save()" class="navbutton btn btn-success" tabindex="0"
+            lang="{{viewState.laCo}}">{{'save' | translate}}</a>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="true">
+      <div class="row top-buffer">
+        <div class="col-md-2">
+          <a (click)="cancel()" (keyup.enter)="cancel()" class="navbutton btn btn-success" id="cancel" tabindex="0" lang="{{viewState.laCo}}">
+          {{'cancel' | translate}}</a>
+        </div>
+        <div class="col-md-3">
+          <a routerLink="{{viewState.isUserTypePublic?'/manageExisting':'/search/back'}}" class="navbutton btn btn-success" id="back" *ngIf='!viewState.isInCreationMode' tabindex="0" lang="{{viewState.laCo}}">{{'back_to_organization_list' | translate}}</a>
+        </div>
+        <div class="col-md-1 pull-right">
+          <a *ngIf="!viewState.isInROMode" (click)="saveAndContinue(2)" (keyup.enter)="saveAndContinue()" class="navbutton btn btn-success pull-right"
+            tabindex="0" lang="{{viewState.laCo}}">{{'next' | translate}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
